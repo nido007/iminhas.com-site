@@ -19,12 +19,21 @@
       min-height: 100vh;
       text-align: center;
     }
+    img.profile {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin-top: 20px;
+      object-fit: cover;
+    }
     h1 {
       color: #333;
+      margin-top: 20px;
     }
     p {
       color: #555;
       max-width: 600px;
+      margin: 20px;
     }
     a.button {
       display: inline-block;
@@ -54,6 +63,23 @@
       border-radius: 5px;
       cursor: pointer;
     }
+    .blog-preview {
+      margin-top: 40px;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .blog-preview h2 {
+      margin-bottom: 10px;
+    }
+    .blog-preview a {
+      color: #007BFF;
+      text-decoration: none;
+      font-weight: bold;
+    }
     footer {
       margin-top: 50px;
       color: #888;
@@ -63,15 +89,23 @@
 </head>
 <body>
 
+  <img src="cloud-engineer-card.png" alt="Profile Picture" class="profile">
+
   <h1>👋 Welcome to iminhas.com</h1>
   <p>I'm Naveed Iqbal, a passionate DevOps and Cloud enthusiast, sharing my learning journey and projects. Follow my blog to stay updated!</p>
 
   <a href="blog.html" class="button">📝 Visit My Blog</a>
 
-  <form action="https://formsubmit.co/YOUR-EMAIL@example.com" method="POST">
+  <form action="https://formsubmit.co/itsnav79@gmail.com" method="POST">
     <input type="email" name="email" required placeholder="Enter your email">
     <button type="submit">Subscribe</button>
   </form>
+
+  <div class="blog-preview">
+    <h2>📚 Latest Blog</h2>
+    <p><strong>First Blog Coming Soon:</strong> My experience setting up Docker and GitHub Actions for CI/CD automation!</p>
+    <a href="blog.html">Read More →</a>
+  </div>
 
   <footer>
     © 2025 iminhas.com | Built with ❤️ for the tech community
