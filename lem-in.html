@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lem-in: Advanced Ant Pathfinding Simulator | Mohammad Naveed Iqbal Minhas</title>
+    <meta name="description" content="Advanced Go programming project showcasing algorithmic optimization, Unix pipes, and real-time visualization by Mohammad Naveed Iqbal Minhas">
+    <meta name="keywords" content="Go programming, algorithms, pathfinding, Unix systems, DevOps, Mohammad Naveed Iqbal Minhas">
+    
+    <!-- Open Graph for social sharing -->
+    <meta property="og:title" content="Lem-in: Advanced Ant Pathfinding Simulator">
+    <meta property="og:description" content="Interactive showcase of sophisticated pathfinding algorithms with real-time ASCII visualization">
+    <meta property="og:url" content="https://iminhas.com/lem-in.html">
+    <meta property="og:type" content="website">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Navigation */
+        .nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 15px 30px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-brand {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #667eea;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero h1 {
+            font-size: 3.5em;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.4em;
+            color: #666;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .badges {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        
+        .badge {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.9);
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        /* Content Sections */
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section h2 {
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            color: #333;
+            text-align: center;
+        }
+        
+        /* Terminal Demo */
+        .terminal {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 25px;
+            border-radius: 15px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            overflow-x: auto;
+            margin: 25px 0;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .terminal-dots {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .dot.red { background: #ff5f56; }
+        .dot.yellow { background: #ffbd2e; }
+        .dot.green { background: #27ca3f; }
+        
+        .terminal-title {
+            margin-left: 20px;
+            color: #888;
+            font-size: 0.9em;
+        }
+        
+        .command {
+            color: #569cd6;
+            margin: 10px 0;
+        }
+        
+        .output {
+            color: #9cdcfe;
+            margin: 8px 0;
+        }
+        
+        .ascii-art {
+            color: #ce9178;
+            font-size: 0.85em;
+            line-height: 1.2;
+            white-space: pre;
+            margin: 15px 0;
+        }
+        
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .tech-stack {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 25px 0;
+        }
+        
+        .tech-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9em;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .hero {
+                padding: 30px 25px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            .nav {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="container">
+        <nav class="nav">
+            <a href="index.html" class="nav-brand">iminhas.com</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>🐜 Lem-in: Ant Pathfinding Simulator</h1>
+            <p class="hero-subtitle">Advanced Go programming project showcasing algorithmic optimization, Unix system programming, and real-time ASCII visualization</p>
+            
+            <div class="badges">
+                <span class="badge">Go Programming</span>
+                <span class="badge">Algorithm Design</span>
+                <span class="badge">Unix Pipes</span>
+                <span class="badge">Real-time Visualization</span>
+                <span class="badge">Git Collaboration</span>
+            </div>
+            
+            <div class="action-buttons">
+                <a href="https://github.com/nido007/lem-in-showcase" class="btn btn-primary">
+                    📚 View Source Code
+                </a>
+                <a href="#demo" class="btn btn-secondary">
+                    🎮 See Demo Below
+                </a>
+            </div>
+        </div>
+
+        <!-- Live Demo Section -->
+        <div class="section" id="demo">
+            <h2>🎮 Live Terminal Demo</h2>
+            <p style="text-align: center; margin-bottom: 25px;">Watch how ants navigate through a complex network to find optimal paths:</p>
+            
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="terminal-title">Terminal — lem-in demo</div>
+                </div>
+                
+                <div class="command">$ ./lem-in example.txt | ./visualizer</div>
+                <div class="output">🎨 Lem-in ASCII Art Visualizer</div>
+                <div class="output">✅ Farm loaded: 8 rooms, 3 ants</div>
+                <div class="output">Which corresponds to the following representation:</div>
+                
+                <div class="ascii-art">        _________________
+       /                 \
+  ____[5]----[3]--[1]     |
+ /            |    /      |
+[6]---[0]----[4]  /       |
+ \   ________/|  /        |
+  \ /        [2]/________/
+  [7]_________/</div>
+                
+                <div class="output">🐜 TURN 1: L1-3 L2-2</div>
+                <div class="output">🐜 TURN 2: L1-4 L2-5 L3-3</div>
+                <div class="output">🐜 TURN 3: L1-0 L2-6 L3-4</div>
+                <div class="output">🐜 TURN 4: L2-0 L3-0</div>
+                <div class="output">✨ All ants have reached their destination!</div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="section">
+            <h2>🛠️ Technical Features</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3 class="feature-title">Advanced Algorithms</h3>
+                    <p>Implements depth-first search with path optimization to find the most efficient routes for multiple ants simultaneously, avoiding traffic jams and collisions.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3 class="feature-title">Unix System Programming</h3>
+                    <p>Uses Unix pipes for inter-process communication between the main simulator and visualizer, demonstrating mastery of system-level programming.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3 class="feature-title">Real-time Visualization</h3>
+                    <p>Custom ASCII art engine renders animated visualization of ant movements through the colony, providing an engaging visual representation.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🧪</div>
+                    <h3 class="feature-title">Comprehensive Testing</h3>
+                    <p>Includes extensive unit tests, edge case handling, and detailed error reporting with 100% test coverage for reliable operation.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technology Stack -->
+        <div class="section">
+            <h2>⚡ Technology Stack</h2>
+            
+            <div class="tech-stack">
+                <span class="tech-item">Go 1.21</span>
+                <span class="tech-item">Unix Pipes</span>
+                <span class="tech-item">DFS Algorithm</span>
+                <span class="tech-item">ASCII Art</span>
+                <span class="tech-item">Git Collaboration</span>
+                <span class="tech-item">Unit Testing</span>
+                <span class="tech-item">Docker</span>
+                <span class="tech-item">CI/CD</span>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <h3>🎯 Skills Demonstrated</h3>
+                <ul style="list-style: none; padding: 0; margin: 20px 0;">
+                    <li>✅ <strong>Algorithm Design:</strong> Complex pathfinding optimization</li>
+                    <li>✅ <strong>System Programming:</strong> Unix pipes and process communication</li>
+                    <li>✅ <strong>Collaborative Development:</strong> Git workflow with conflict resolution</li>
+                    <li>✅ <strong>Testing & Quality:</strong> Comprehensive test coverage</li>
+                    <li>✅ <strong>Documentation:</strong> Professional technical writing</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Project Impact -->
+        <div class="section">
+            <h2>📊 Project Impact</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Performance</h3>
+                    <p>Optimized algorithm finds shortest path combinations in milliseconds, handling complex networks with multiple routes efficiently.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3 class="feature-title">Collaboration</h3>
+                    <p>Successfully collaborated using advanced Git workflow, resolved merge conflicts, and implemented bonus features seamlessly.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3 class="feature-title">Quality</h3>
+                    <p>Achieved 100% test coverage with comprehensive error handling and professional documentation following Go best practices.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3 class="feature-title">Innovation</h3>
+                    <p>Exceeded project requirements with impressive bonus visualization feature, demonstrating initiative and technical creativity.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="section">
+            <div style="text-align: center;">
+                <h2>🔗 Links & Resources</h2>
+                <div class="action-buttons">
+                    <a href="https://github.com/nido007/lem-in-showcase" class="btn btn-primary">GitHub Repository</a>
+                    <a href="index.html" class="btn btn-secondary">← Back to Portfolio</a>
+                    <a href="blog.html" class="btn btn-secondary">Read My Blog</a>
+                </div>
+                
+                <p style="margin-top: 30px; color: #666;">
+                    Part of my DevOps and Software Development journey • 
+                    <a href="index.html" style="color: #667eea; text-decoration: none;">Mohammad Naveed Iqbal Minhas</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <a href="#top" class="back-to-top" id="backToTop">↑</a>
+
+    <script>
+        // Back to top functionality
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Simple analytics tracking
+        function trackEvent(action, label) {
+            console.log(`Event: ${action}, Label: ${label}`);
+            // Add your analytics code here
+        }
+
+        // Track button clicks
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function() {
+                trackEvent('button_click', this.textContent.trim());
+            });
+        });
+    </script>
+</body>
+</html>

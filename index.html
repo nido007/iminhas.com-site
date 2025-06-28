@@ -6,8 +6,240 @@
   <meta name="description" content="Portfolio of Naveed Iqbal - Cloud Engineer learning DevOps, Cloud, and Web Technologies.">
   <meta name="keywords" content="Cloud Engineer, DevOps Portfolio, iminhas.com, Naveed Iqbal, Golang Developer, Web Developer">
   <title>iminhas.com | Cloud Engineer Portfolio</title>
+  
+  <style>
+    /* Enhanced styles while maintaining your original design */
+    body {
+      font-family: Arial, sans-serif; 
+      max-width: 900px; 
+      margin: auto; 
+      padding: 20px; 
+      text-align: center;
+      line-height: 1.6;
+    }
+    
+    /* Projects section styles */
+    .projects-section {
+      margin: 60px 0;
+      text-align: left;
+    }
+    
+    .projects-section h2 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 15px;
+      color: #333;
+    }
+    
+    .projects-subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 40px;
+      font-size: 1.1em;
+    }
+    
+    .project-card {
+      border: 2px solid #007BFF;
+      border-radius: 12px;
+      padding: 25px;
+      margin: 25px 0;
+      background: linear-gradient(135deg, rgba(0, 123, 255, 0.05), rgba(40, 167, 69, 0.05));
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 123, 255, 0.2);
+    }
+    
+    .project-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .project-icon {
+      font-size: 2.5em;
+      margin-right: 15px;
+    }
+    
+    .project-info h3 {
+      margin: 0 0 5px 0;
+      color: #333;
+      font-size: 1.4em;
+    }
+    
+    .project-meta {
+      color: #007BFF;
+      font-weight: 600;
+      font-size: 0.9em;
+      margin: 0;
+    }
+    
+    .project-preview {
+      background: #1e1e1e;
+      border-radius: 8px;
+      margin: 20px 0;
+      overflow: hidden;
+    }
+    
+    .code-header {
+      background: #2d2d2d;
+      padding: 8px 15px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8em;
+      color: #888;
+    }
+    
+    .code-lang {
+      color: #4fc1ff;
+      font-weight: 600;
+    }
+    
+    .code-content {
+      padding: 15px;
+      margin: 0;
+      color: #d4d4d4;
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 0.8em;
+      line-height: 1.4;
+      overflow-x: auto;
+      white-space: pre;
+    }
+    
+    .project-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 15px 0;
+    }
+    
+    .highlight {
+      background: rgba(0, 123, 255, 0.1);
+      color: #007BFF;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.8em;
+      font-weight: 600;
+      border: 1px solid rgba(0, 123, 255, 0.2);
+    }
+    
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 15px 0;
+    }
+    
+    .tech-tag {
+      background: #007BFF;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 10px;
+      font-size: 0.8em;
+      font-weight: 600;
+    }
+    
+    .tech-tag.go {
+      background: #00ADD8;
+    }
+    
+    .project-actions {
+      display: flex;
+      gap: 15px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9em;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #007BFF, #28A745);
+      color: white;
+      box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+    }
+    
+    .btn-secondary {
+      background: rgba(0, 123, 255, 0.1);
+      color: #007BFF;
+      border: 1px solid #007BFF;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 123, 255, 0.4);
+    }
+    
+    .project-metrics {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(0, 123, 255, 0.2);
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    
+    .metric {
+      text-align: center;
+      min-width: 80px;
+    }
+    
+    .metric-value {
+      display: block;
+      font-size: 1.4em;
+      font-weight: bold;
+      color: #007BFF;
+    }
+    
+    .metric-label {
+      font-size: 0.8em;
+      color: #666;
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .project-header {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .project-icon {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+      
+      .project-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .project-metrics {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .code-content {
+        font-size: 0.7em;
+      }
+    }
+  </style>
 </head>
-<body style="font-family: Arial, sans-serif; max-width: 900px; margin: auto; padding: 20px; text-align: center;">
+<body>
 
   <!-- Profile Picture -->
   <img src="ai-blog.png" alt="Profile Picture" style="width: 150px; height: 150px; border-radius: 50%; margin-top: 20px;">
@@ -26,6 +258,92 @@
       <input type="email" name="email" required placeholder="Enter your email" style="padding: 10px; width: 250px;">
       <button type="submit" style="padding: 10px 20px; background-color: #28A745; color: white; border: none; border-radius: 5px;">Subscribe</button>
     </form>
+  </div>
+
+  <!-- PROJECTS SECTION - NEW ADDITION -->
+  <div class="projects-section" id="projects">
+    <h2>🚀 Featured Projects</h2>
+    <p class="projects-subtitle">Showcasing technical expertise through hands-on development</p>
+    
+    <!-- Lem-in Project Card -->
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">🐜</div>
+        <div class="project-info">
+          <h3>Lem-in: Ant Pathfinding Simulator</h3>
+          <p class="project-meta">Advanced Go Programming • System Design • Unix Programming</p>
+        </div>
+      </div>
+      
+      <div class="project-preview">
+        <div class="code-header">
+          <span class="code-lang">Go</span>
+          <span class="code-file">pathfinder.go</span>
+        </div>
+        <div class="code-content">func FindOptimalPathCombination(antCount int, paths [][]*Room) PathCombination {
+    combinations := FindNonOverlappingPathSets(paths)
+    var best PathCombination
+    best.Turns = 999999
+    
+    for _, combo := range combinations {
+        turns := EstimateTurns(antCount, combo)
+        if turns < best.Turns {
+            best = PathCombination{Paths: combo, Turns: turns}
+        }
+    }
+    return best
+}</div>
+      </div>
+      
+      <div style="margin: 20px 0;">
+        <p><strong>Sophisticated multi-agent pathfinding system</strong> featuring advanced algorithms, Unix pipe communication, real-time ASCII visualization, and comprehensive testing. Demonstrates mastery of system programming and algorithmic optimization.</p>
+        
+        <div class="project-highlights">
+          <span class="highlight">🧠 DFS Algorithm Optimization</span>
+          <span class="highlight">🔧 Unix System Programming</span>
+          <span class="highlight">🎨 Real-time ASCII Visualization</span>
+          <span class="highlight">🧪 100% Test Coverage</span>
+          <span class="highlight">🤝 Git Collaboration</span>
+        </div>
+      </div>
+      
+      <div class="project-tech">
+        <span class="tech-tag go">Go 1.21</span>
+        <span class="tech-tag">Unix Pipes</span>
+        <span class="tech-tag">Algorithms</span>
+        <span class="tech-tag">Git Workflow</span>
+        <span class="tech-tag">Testing</span>
+        <span class="tech-tag">ASCII Art</span>
+      </div>
+      
+      <div class="project-actions">
+        <a href="lem-in.html" class="btn btn-primary">
+          🎮 Interactive Demo & Details
+        </a>
+        <a href="https://github.com/nido007/lem-in-showcase" class="btn btn-secondary">
+          📚 View Source Code
+        </a>
+      </div>
+      
+      <div class="project-metrics">
+        <div class="metric">
+          <span class="metric-value">500+</span>
+          <span class="metric-label">Lines of Code</span>
+        </div>
+        <div class="metric">
+          <span class="metric-value">8</span>
+          <span class="metric-label">Go Modules</span>
+        </div>
+        <div class="metric">
+          <span class="metric-value">100%</span>
+          <span class="metric-label">Tests Pass</span>
+        </div>
+        <div class="metric">
+          <span class="metric-value">2</span>
+          <span class="metric-label">Collaborators</span>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Latest Blog Preview Section -->
@@ -47,13 +365,14 @@
       <p>Learn how Artificial Intelligence is redefining IT operations with predictive analytics, automated incident management, and smarter DevOps strategies...</p>
       <a href="blog2.html" style="text-decoration: none; color: #007BFF;">Read Full Blog →</a>
     </div>
-  </div>
-  <!-- Blog 3 Card -->
-  <div style="border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-top: 30px;">
-    <img src="AIpic4.png" alt="AI in Cybersecurity" style="width: 100%; max-width: 600px; border-radius: 8px;">
-    <h3 style="margin-top: 15px;">AI in Cybersecurity: How Machine Learning is Fighting Modern Threats</h3>
-    <p>Discover how AI is defending against advanced cyberattacks using real-time detection, anomaly prediction, and automated security responses...</p>
-    <a href="blog3.html" style="text-decoration: none; color: #007BFF;">Read Full Blog →</a>
+
+    <!-- Blog 3 Card -->
+    <div style="border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-top: 30px;">
+      <img src="AIpic4.png" alt="AI in Cybersecurity" style="width: 100%; max-width: 600px; border-radius: 8px;">
+      <h3 style="margin-top: 15px;">AI in Cybersecurity: How Machine Learning is Fighting Modern Threats</h3>
+      <p>Discover how AI is defending against advanced cyberattacks using real-time detection, anomaly prediction, and automated security responses...</p>
+      <a href="blog3.html" style="text-decoration: none; color: #007BFF;">Read Full Blog →</a>
+    </div>
   </div>
 
   <!-- Footer -->
