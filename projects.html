@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Mohammad Naveed Iqbal Minhas - DevOps & Cloud Engineering Portfolio</title>
+    <meta name="description" content="Explore innovative DevOps, Cloud, and AI projects by Mohammad Naveed Iqbal Minhas. Showcasing technical expertise in modern infrastructure solutions.">
+    <meta name="keywords" content="DevOps Projects, Cloud Engineering, AI Integration, Portfolio, Mohammad Naveed Iqbal Minhas, Technical Showcase">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Projects - Mohammad Naveed Iqbal Minhas">
+    <meta property="og:description" content="Innovative DevOps and Cloud Engineering projects showcasing modern infrastructure solutions">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://iminhas.com/projects.html">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --accent: #f093fb;
+            --dark: #1a202c;
+            --gray-900: #1a202c;
+            --gray-800: #2d3748;
+            --gray-700: #4a5568;
+            --gray-600: #718096;
+            --gray-500: #a0aec0;
+            --gray-400: #cbd5e0;
+            --gray-300: #e2e8f0;
+            --gray-200: #edf2f7;
+            --gray-100: #f7fafc;
+            --gray-50: #f9fafb;
+            --white: #ffffff;
+            --success: #48bb78;
+            --warning: #ed8936;
+            --error: #f56565;
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+            --shadow-xs: 0 0 0 1px rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background: var(--gray-50);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--gray-200);
+            z-index: 1000;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--gray-700);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary);
+            transform: translateY(-1px);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-primary);
+            padding: 150px 0 100px;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, #f0f8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 3vw, 1.5rem);
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            background: white;
+            padding: 3rem 0;
+            margin-top: -80px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .filter-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .filter-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow-2xl);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            border: 1px solid var(--gray-200);
+        }
+
+        .filter-tags {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-tag {
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            background: var(--gray-100);
+            color: var(--gray-700);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-tag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .filter-tag:hover,
+        .filter-tag.active {
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .filter-tag:hover::before,
+        .filter-tag.active::before {
+            left: 0;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 5rem 0;
+            background: var(--gray-50);
+        }
+
+        .projects-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+
+        /* Featured Project */
+        .featured-project {
+            grid-column: 1 / -1;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 24px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            min-height: 500px;
+            margin-bottom: 2rem;
+        }
+
+        .featured-content {
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .featured-badge {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 2rem;
+            width: fit-content;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .featured-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .featured-description {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .featured-tech {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .tech-badge {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .featured-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .featured-visual {
+            position: relative;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-preview {
+            width: 90%;
+            max-width: 400px;
+            background: var(--gray-900);
+            border-radius: 12px;
+            padding: 1.5rem;
+            font-family: 'Monaco', 'Courier New', monospace;
+            color: #00ff00;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: transform 0.3s ease;
+        }
+
+        .featured-project:hover .project-preview {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        /* Regular Project Cards */
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--gray-200);
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .project-image {
+            position: relative;
+            height: 250px;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-status {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-completed {
+            color: var(--success);
+        }
+
+        .status-in-progress {
+            color: var(--warning);
+        }
+
+        .status-planned {
+            color: var(--gray-600);
+        }
+
+        .project-content {
+            padding: 2.5rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--gray-900);
+            line-height: 1.3;
+        }
+
+        .project-description {
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .project-tech-tag {
+            background: var(--gray-100);
+            color: var(--gray-700);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover .project-tech-tag {
+            background: var(--primary);
+            color: white;
+        }
+
+        .project-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            flex: 1;
+            padding: 0.75rem 1.5rem;
+            background: var(--gradient-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project-link.secondary {
+            background: var(--gray-200);
+            color: var(--gray-700);
+        }
+
+        .project-link.secondary:hover {
+            background: var(--gray-300);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--gray-900);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .stats-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-item {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.125rem;
+            opacity: 0.9;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--gray-700);
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .featured-project {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-content {
+                padding: 3rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                justify-content: start;
+                align-items: center;
+                padding-top: 3rem;
+                transition: left 0.3s ease;
+                box-shadow: var(--shadow-xl);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hero {
+                padding: 120px 0 80px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .featured-content {
+                padding: 2rem;
+            }
+
+            .featured-title {
+                font-size: 2rem;
+            }
+
+            .project-content {
+                padding: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container,
+            .hero-container,
+            .filter-container,
+            .projects-container,
+            .stats-container {
+                padding: 0 1rem;
+            }
+
+            .project-content {
+                padding: 1.5rem;
+            }
+
+            .featured-content {
+                padding: 1.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">iminhas.com</a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="projects.html" class="nav-link active">Projects</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-toggle" id="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-badge">
+                <span>🛠️</span>
+                <span>DevOps & Cloud Engineering Portfolio</span>
+            </div>
+            <h1 class="hero-title">My Projects</h1>
+            <p class="hero-subtitle">
+                Showcasing innovative solutions in DevOps, Cloud Infrastructure, and AI Integration. 
+                From algorithmic challenges to production-ready systems, explore how I bridge technology gaps.
+            </p>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="filter-container">
+            <div class="filter-card">
+                <div class="filter-tags">
+                    <a href="#" class="filter-tag active" data-category="all">All Projects</a>
+                    <a href="#" class="filter-tag" data-category="devops">DevOps</a>
+                    <a href="#" class="filter-tag" data-category="cloud">Cloud</a>
+                    <a href="#" class="filter-tag" data-category="ai">AI Integration</a>
+                    <a href="#" class="filter-tag" data-category="algorithms">Algorithms</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <div class="projects-container">
+            <div class="projects-grid">
+                <!-- Featured Project: Lem-in -->
+                <article class="featured-project" data-category="algorithms">
+                    <div class="featured-content">
+                        <span class="featured-badge">🌟 Featured Project</span>
+                        <h2 class="featured-title">Lem-in: Ant Pathfinding Simulator</h2>
+                        <p class="featured-description">
+                            Advanced Go programming project featuring sophisticated multi-agent pathfinding algorithms, 
+                            Unix pipe communication, and real-time ASCII visualization. Demonstrates mastery of system programming and algorithmic optimization.
+                        </p>
+                        <div class="featured-tech">
+                            <span class="tech-badge">Go 1.21</span>
+                            <span class="tech-badge">Unix Pipes</span>
+                            <span class="tech-badge">DFS Algorithm</span>
+                            <span class="tech-badge">ASCII Art</span>
+                            <span class="tech-badge">Git Collaboration</span>
+                        </div>
+                        <div class="featured-actions">
+                            <a href="lem-in.html" class="btn btn-primary">
+                                <span>🎮</span>
+                                <span>View Project</span>
+                            </a>
+                            <a href="https://github.com/nido007/lem-in-showcase" class="btn btn-secondary">
+                                <span>📁</span>
+                                <span>Source Code</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="featured-visual">
+                        <div class="project-preview">
+$ ./lem-in example.txt | ./visualizer
+🎨 Lem-in ASCII Art Visualizer
+✅ Farm loaded: 8 rooms, 3 ants
+
+        _________________
+       /                 \
+  ____[5]----[3]--[1]     |
+ /            |    /      |
+[6]---[0]----[4]  /       |
+ \   ________/|  /        |
+  \ /        [2]/________/
+  [7]_________/
+
+🐜 TURN 1: L1-3 L2-2
+🐜 TURN 2: L1-4 L2-5 L3-3
+🐜 TURN 3: L1-0 L2-6 L3-4
+✨ All ants reached destination!
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2: DevOps Pipeline -->
+                <article class="project-card" data-category="devops">
+                    <div class="project-image">
+                        <span style="font-size: 4rem; color: white;">🔄</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-status status-in-progress">In Development</span>
+                        <h3 class="project-title">CI/CD Pipeline Automation</h3>
+                        <p class="project-description">
+                            Comprehensive DevOps pipeline using GitHub Actions, Docker, and AWS. Features automated testing, 
+                            security scanning, multi-environment deployments, and infrastructure as code.
+                        </p>
+                        <div class="project-tech">
+                            <span class="project-tech-tag">GitHub Actions</span>
+                            <span class="project-tech-tag">Docker</span>
+                            <span class="project-tech-tag">AWS</span>
+                            <span class="project-tech-tag">Terraform</span>
+                            <span class="project-tech-tag">Kubernetes</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="#" class="project-link">Coming Soon</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3: Cloud Monitoring -->
+                <article class="project-card" data-category="cloud ai">
+                    <div class="project-image">
+                        <span style="font-size: 4rem; color: white;">☁️</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-status status-planned">Planned</span>
+                        <h3 class="project-title">AI-Powered Cloud Monitor</h3>
+                        <p class="project-description">
+                            Real-time monitoring dashboard for AWS resources with predictive scaling and cost optimization 
+                            recommendations powered by machine learning algorithms.
+                        </p>
+                        <div class="project-tech">
+                            <span class="project-tech-tag">Python</span>
+                            <span class="project-tech-tag">AWS CloudWatch</span>
+                            <span class="project-tech-tag">React</span>
+                            <span class="project-tech-tag">Machine Learning</span>
+                            <span class="project-tech-tag">TensorFlow</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="#" class="project-link secondary">In Planning</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 4: Website Portfolio -->
+                <article class="project-card" data-category="devops">
+                    <div class="project-image">
+                        <span style="font-size: 4rem; color: white;">🌐</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-status status-completed">Live</span>
+                        <h3 class="project-title">Professional Portfolio Website</h3>
+                        <p class="project-description">
+                            Modern, responsive portfolio website built with Docker deployment, CI/CD integration, 
+                            and optimized for performance. Features blog system and project showcase.
+                        </p>
+                        <div class="project-tech">
+                            <span class="project-tech-tag">HTML/CSS/JS</span>
+                            <span class="project-tech-tag">Docker</span>
+                            <span class="project-tech-tag">Cloudflare</span>
+                            <span class="project-tech-tag">Git</span>
+                            <span class="project-tech-tag">Responsive Design</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="index.html" class="project-link">View Live Site</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 5: Infrastructure as Code -->
+                <article class="project-card" data-category="cloud devops">
+                    <div class="project-image">
+                        <span style="font-size: 4rem; color: white;">🏗️</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-status status-in-progress">In Development</span>
+                        <h3 class="project-title">Terraform Infrastructure Templates</h3>
+                        <p class="project-description">
+                            Reusable Terraform modules for common AWS infrastructure patterns. Includes VPC setup, 
+                            EKS clusters, RDS databases, and comprehensive security configurations.
+                        </p>
+                        <div class="project-tech">
+                            <span class="project-tech-tag">Terraform</span>
+                            <span class="project-tech-tag">AWS</span>
+                            <span class="project-tech-tag">Kubernetes</span>
+                            <span class="project-tech-tag">Ansible</span>
+                            <span class="project-tech-tag">GitOps</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="#" class="project-link">Preview Soon</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 6: Academy Platform -->
+                <article class="project-card" data-category="ai">
+                    <div class="project-image">
+                        <span style="font-size: 4rem; color: white;">🎓</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-status status-planned">Future</span>
+                        <h3 class="project-title">academy.iminhas.com</h3>
+                        <p class="project-description">
+                            Online learning platform for tech education. Courses on breaking into tech, learning 
+                            in-demand technologies, and career guidance for aspiring developers and engineers.
+                        </p>
+                        <div class="project-tech">
+                            <span class="project-tech-tag">Learning Management</span>
+                            <span class="project-tech-tag">Video Streaming</span>
+                            <span class="project-tech-tag">Payment Integration</span>
+                            <span class="project-tech-tag">Interactive Content</span>
+                            <span class="project-tech-tag">Mobile App</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="#" class="project-link secondary">Coming 2025</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">6+</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Technologies Mastered</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Client Satisfaction</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Learning & Building</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Filter functionality
+        const filterTags = document.querySelectorAll('.filter-tag');
+        const projectCards = document.querySelectorAll('[data-category]');
+
+        filterTags.forEach(tag => {
+            tag.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all tags
+                filterTags.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tag
+                this.classList.add('active');
+                
+                const category = this.getAttribute('data-category');
+                
+                // Filter project cards
+                projectCards.forEach(card => {
+                    const cardCategories = card.getAttribute('data-category').split(' ');
+                    
+                    if (category === 'all' || cardCategories.includes(category)) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 100);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Intersection Observer for animations
+        const observeElements = () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            // Observe project cards
+            projectCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+
+            // Observe stats
+            document.querySelectorAll('.stat-item').forEach(stat => {
+                stat.style.opacity = '0';
+                stat.style.transform = 'translateY(30px)';
+                stat.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(stat);
+            });
+        };
+
+        // Initialize animations when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(observeElements, 500);
+        });
+
+        // Analytics tracking (placeholder)
+        function trackEvent(action, label) {
+            console.log(`Event: ${action}, Label: ${label}`);
+            // Add your analytics code here
+        }
+
+        // Track project clicks
+        document.querySelectorAll('.project-link, .btn').forEach(link => {
+            link.addEventListener('click', function() {
+                const projectTitle = this.closest('.project-card, .featured-project')?.querySelector('.project-title, .featured-title')?.textContent || 'Unknown Project';
+                trackEvent('project_click', projectTitle);
+            });
+        });
+    </script>
+</body>
+</html>

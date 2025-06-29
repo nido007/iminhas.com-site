@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Mohammad Naveed Iqbal Minhas - Let's Build Something Amazing Together</title>
+    <meta name="description" content="Get in touch with Mohammad Naveed Iqbal Minhas for DevOps, Cloud Engineering, and AI integration projects. Available for collaboration and consulting.">
+    <meta name="keywords" content="Contact DevOps Engineer, Cloud Consultant, Mohammad Naveed Iqbal Minhas, Collaboration, Consulting">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Contact - Mohammad Naveed Iqbal Minhas">
+    <meta property="og:description" content="Ready to collaborate on your next DevOps or Cloud project? Let's connect and build something amazing together.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://iminhas.com/contact.html">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --accent: #f093fb;
+            --dark: #1a202c;
+            --gray-900: #1a202c;
+            --gray-800: #2d3748;
+            --gray-700: #4a5568;
+            --gray-600: #718096;
+            --gray-500: #a0aec0;
+            --gray-400: #cbd5e0;
+            --gray-300: #e2e8f0;
+            --gray-200: #edf2f7;
+            --gray-100: #f7fafc;
+            --gray-50: #f9fafb;
+            --white: #ffffff;
+            --success: #48bb78;
+            --warning: #ed8936;
+            --error: #f56565;
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+            --shadow-xs: 0 0 0 1px rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background: var(--gray-50);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--gray-200);
+            z-index: 1000;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--gray-700);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary);
+            transform: translateY(-1px);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-primary);
+            padding: 150px 0 100px;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, #f0f8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 3vw, 1.5rem);
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 5rem 0;
+            background: var(--gray-50);
+            margin-top: -80px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            background: white;
+            border-radius: 24px;
+            box-shadow: var(--shadow-2xl);
+            overflow: hidden;
+            border: 1px solid var(--gray-200);
+        }
+
+        /* Contact Info */
+        .contact-info {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .contact-info-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .contact-info p {
+            font-size: 1.125rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .contact-method:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-details h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-details p {
+            opacity: 0.9;
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-size: 1.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            padding: 4rem;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .form-header h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--gray-900);
+        }
+
+        .form-header p {
+            color: var(--gray-600);
+            font-size: 1.125rem;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--gray-700);
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: var(--gray-50);
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            background: var(--gray-50);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.25rem 2rem;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Availability Section */
+        .availability-section {
+            background: var(--gray-900);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .availability-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .availability-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, #f0f8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .availability-text {
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .availability-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(72, 187, 120, 0.2);
+            color: var(--success);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--gray-700);
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .contact-info,
+            .contact-form {
+                padding: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                justify-content: start;
+                align-items: center;
+                padding-top: 3rem;
+                transition: left 0.3s ease;
+                box-shadow: var(--shadow-xl);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hero {
+                padding: 120px 0 80px;
+            }
+
+            .contact-info,
+            .contact-form {
+                padding: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-methods {
+                gap: 1.5rem;
+            }
+
+            .contact-method {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container,
+            .hero-container,
+            .contact-container,
+            .availability-container {
+                padding: 0 1rem;
+            }
+
+            .contact-info,
+            .contact-form {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">iminhas.com</a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-toggle" id="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-badge">
+                <span>💬</span>
+                <span>Let's Connect & Collaborate</span>
+            </div>
+            <h1 class="hero-title">Ready to Build Something Amazing?</h1>
+            <p class="hero-subtitle">
+                Whether you're looking for DevOps expertise, cloud architecture solutions, or AI integration, 
+                I'm here to help bring your vision to life. Let's discuss your next project.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <div class="contact-info-content">
+                        <h2>Get in Touch</h2>
+                        <p>
+                            I'm always excited to discuss new opportunities, share knowledge, and collaborate on innovative projects. 
+                            Feel free to reach out through any of the channels below.
+                        </p>
+
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <div class="contact-icon">📧</div>
+                                <div class="contact-details">
+                                    <h4>Email</h4>
+                                    <p>naveed@iminhas.com</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-method">
+                                <div class="contact-icon">💼</div>
+                                <div class="contact-details">
+                                    <h4>LinkedIn</h4>
+                                    <p>linkedin.com/in/naveediqbal</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-method">
+                                <div class="contact-icon">📁</div>
+                                <div class="contact-details">
+                                    <h4>GitHub</h4>
+                                    <p>github.com/nido007</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-method">
+                                <div class="contact-icon">🌍</div>
+                                <div class="contact-details">
+                                    <h4>Location</h4>
+                                    <p>Available for Remote & On-site</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="social-links">
+                            <a href="mailto:naveed@iminhas.com" class="social-link">📧</a>
+                            <a href="#" class="social-link">💼</a>
+                            <a href="#" class="social-link">📁</a>
+                            <a href="#" class="social-link">🐦</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <div class="form-header">
+                        <h3>Send a Message</h3>
+                        <p>Let's discuss your project requirements and how I can help</p>
+                    </div>
+
+                    <form action="https://formsubmit.co/YOUR-EMAIL@example.com" method="POST">
+                        <!-- Hidden fields for FormSubmit -->
+                        <input type="hidden" name="_subject" value="New Contact Form Submission - iminhas.com">
+                        <input type="hidden" name="_next" value="https://iminhas.com/thank-you.html">
+                        <input type="hidden" name="_captcha" value="false">
+
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div>
+                                    <label for="firstName" class="form-label">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" class="form-input" required>
+                                </div>
+                                <div>
+                                    <label for="lastName" class="form-label">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" class="form-input" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div>
+                                    <label for="email" class="form-label">Email Address *</label>
+                                    <input type="email" id="email" name="email" class="form-input" required>
+                                </div>
+                                <div>
+                                    <label for="company" class="form-label">Company</label>
+                                    <input type="text" id="company" name="company" class="form-input">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="projectType" class="form-label">Project Type *</label>
+                            <select id="projectType" name="projectType" class="form-select" required>
+                                <option value="">Select project type</option>
+                                <option value="devops-consulting">DevOps Consulting</option>
+                                <option value="cloud-migration">Cloud Migration</option>
+                                <option value="ci-cd-setup">CI/CD Pipeline Setup</option>
+                                <option value="infrastructure-automation">Infrastructure Automation</option>
+                                <option value="ai-integration">AI Integration</option>
+                                <option value="training-workshops">Training & Workshops</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="budget" class="form-label">Project Budget</label>
+                            <select id="budget" name="budget" class="form-select">
+                                <option value="">Select budget range</option>
+                                <option value="under-5k">Under $5,000</option>
+                                <option value="5k-15k">$5,000 - $15,000</option>
+                                <option value="15k-50k">$15,000 - $50,000</option>
+                                <option value="50k-plus">$50,000+</option>
+                                <option value="discuss">Let's Discuss</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="timeline" class="form-label">Timeline</label>
+                            <select id="timeline" name="timeline" class="form-select">
+                                <option value="">Select timeline</option>
+                                <option value="asap">ASAP</option>
+                                <option value="1-month">Within 1 month</option>
+                                <option value="3-months">Within 3 months</option>
+                                <option value="6-months">Within 6 months</option>
+                                <option value="flexible">Flexible</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Project Details *</label>
+                            <textarea id="message" name="message" class="form-textarea" placeholder="Tell me about your project, goals, current challenges, and how I can help..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Availability Section -->
+    <section class="availability-section">
+        <div class="availability-container">
+            <h2 class="availability-title">Current Availability</h2>
+            <p class="availability-text">
+                I'm currently accepting new projects and collaborations. Whether you need short-term consulting 
+                or long-term partnership, I'm here to help you succeed.
+            </p>
+            <div class="availability-status">
+                <div class="status-indicator"></div>
+                <span>Available for New Projects</span>
+            </div>
+            <p style="opacity: 0.8; margin-top: 1rem;">
+                <strong>Response Time:</strong> Within 24 hours | <strong>Consultation:</strong> Free initial call
+            </p>
+        </div>
+    </section>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Form validation and enhancement
+        const form = document.querySelector('form');
+        const submitBtn = document.querySelector('.submit-btn');
+
+        form.addEventListener('submit', function(e) {
+            // Add loading state
+            submitBtn.innerHTML = '<span style="display: inline-flex; align-items: center; gap: 0.5rem;"><span>Sending...</span><span style="animation: spin 1s linear infinite;">⏳</span></span>';
+            submitBtn.disabled = true;
+            
+            // Note: Form will submit to FormSubmit
+            // You can add additional validation or analytics here
+            
+            // Track form submission
+            trackEvent('form_submission', 'contact_form');
+        });
+
+        // Real-time form validation
+        const requiredFields = document.querySelectorAll('[required]');
+        
+        requiredFields.forEach(field => {
+            field.addEventListener('blur', function() {
+                if (this.value.trim() === '') {
+                    this.style.borderColor = 'var(--error)';
+                } else {
+                    this.style.borderColor = 'var(--success)';
+                }
+            });
+
+            field.addEventListener('input', function() {
+                if (this.style.borderColor === 'rgb(245, 101, 101)') { // error color
+                    this.style.borderColor = 'var(--gray-200)';
+                }
+            });
+        });
+
+        // Email validation
+        const emailField = document.getElementById('email');
+        emailField.addEventListener('blur', function() {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(this.value)) {
+                this.style.borderColor = 'var(--error)';
+            } else {
+                this.style.borderColor = 'var(--success)';
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observeElements = () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            // Observe contact methods
+            document.querySelectorAll('.contact-method').forEach(method => {
+                method.style.opacity = '0';
+                method.style.transform = 'translateY(30px)';
+                method.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(method);
+            });
+
+            // Observe form groups
+            document.querySelectorAll('.form-group').forEach(group => {
+                group.style.opacity = '0';
+                group.style.transform = 'translateY(30px)';
+                group.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(group);
+            });
+        };
+
+        // Initialize animations when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(observeElements, 500);
+        });
+
+        // Analytics tracking (placeholder)
+        function trackEvent(action, label) {
+            console.log(`Event: ${action}, Label: ${label}`);
+            // Add your analytics code here
+        }
+
+        // Track contact method clicks
+        document.querySelectorAll('.contact-method, .social-link').forEach(method => {
+            method.addEventListener('click', function() {
+                const methodType = this.querySelector('h4')?.textContent || 'social_link';
+                trackEvent('contact_method_click', methodType);
+            });
+        });
+
+        // Add spinning animation for loading state
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes spin {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
