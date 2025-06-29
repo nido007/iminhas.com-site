@@ -286,11 +286,12 @@
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(20px);
             border-radius: 24px;
-            padding: 2rem;
+            padding: 2.5rem;
             border: 1px solid rgba(255, 255, 255, 0.2);
             text-align: center;
             transform: perspective(1000px) rotateY(-5deg);
             transition: all 0.3s ease;
+            max-width: 420px;
         }
 
         .profile-card:hover {
@@ -298,12 +299,24 @@
         }
 
         .profile-image {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            border: 4px solid rgba(255, 255, 255, 0.3);
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+            margin: 0 auto 2rem;
+            border: 6px solid rgba(255, 255, 255, 0.4);
             object-fit: cover;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+            transition: all 0.3s ease;
+        }
+
+        .profile-card:hover .profile-image {
+            transform: scale(1.05);
+            border-color: rgba(255, 255, 255, 0.6);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.2) inset;
         }
 
         .profile-title {
@@ -858,12 +871,19 @@
             <div class="hero-visual">
                 <div class="profile-card">
                     <img src="ai-blog.png" alt="Mohammad Naveed Iqbal Minhas" class="profile-image">
+                    <!-- 
+                    If your Ghibli picture has a different name, replace "ai-blog.png" with:
+                    - The exact filename of your Ghibli picture
+                    - Make sure it's in the same folder as index.html
+                    - Common names might be: profile.png, ghibli.png, or one of your existing files
+                    -->
                     <h3 class="profile-title">Building Tomorrow's Infrastructure</h3>
                     <p class="profile-subtitle">Where DevOps meets Artificial Intelligence</p>
                     <div class="social-links">
-                        <a href="#" class="social-link">📧</a>
-                        <a href="#" class="social-link">💼</a>
-                        <a href="#" class="social-link">📁</a>
+                        <a href="mailto:naveed@iminhas.com" class="social-link" title="Email">📧</a>
+                        <a href="https://linkedin.com/in/naveediqbal" class="social-link" title="LinkedIn" target="_blank">💼</a>
+                        <a href="https://github.com/nido007" class="social-link" title="GitHub" target="_blank">📁</a>
+                        <!-- Update these URLs with your actual social media profiles -->
                     </div>
                 </div>
             </div>
@@ -951,7 +971,10 @@
             <p class="newsletter-subtitle">
                 Get the latest insights on DevOps, AI, and cloud technologies delivered to your inbox
             </p>
-            <form class="newsletter-form" action="https://formsubmit.co/YOUR-EMAIL@example.com" method="POST">
+            <form class="newsletter-form" action="https://formsubmit.co/naveed@iminhas.com" method="POST">
+                <!-- Replace naveed@iminhas.com with your actual email address -->
+                <input type="hidden" name="_subject" value="Newsletter Subscription - iminhas.com">
+                <input type="hidden" name="_next" value="https://iminhas.com/index.html">
                 <input type="email" name="email" class="newsletter-input" placeholder="Enter your email address" required>
                 <button type="submit" class="newsletter-btn">Subscribe</button>
             </form>
