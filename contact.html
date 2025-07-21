@@ -366,6 +366,33 @@
             font-size: 1.125rem;
         }
 
+        /* Message Container for Success/Error */
+        .message-container {
+            margin-bottom: 2rem;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid;
+            display: none;
+            animation: slideIn 0.3s ease;
+        }
+
+        .message-container.success {
+            background: rgba(72, 187, 120, 0.1);
+            border-color: var(--success);
+            color: var(--success);
+        }
+
+        .message-container.error {
+            background: rgba(245, 101, 101, 0.1);
+            border-color: var(--error);
+            color: var(--error);
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .form-group {
             margin-bottom: 2rem;
         }
@@ -427,6 +454,13 @@
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
 
+        .char-counter {
+            text-align: right;
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+
         .submit-btn {
             width: 100%;
             padding: 1.25rem 2rem;
@@ -439,15 +473,43 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
         }
 
-        .submit-btn:hover {
+        .submit-btn:hover:not(:disabled) {
             transform: translateY(-2px);
             box-shadow: var(--shadow-xl);
         }
 
         .submit-btn:active {
             transform: translateY(0);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-loading {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
 
         /* Availability Section */
@@ -626,7 +688,7 @@
             </div>
             <h1 class="hero-title">Ready to Build Something Amazing?</h1>
             <p class="hero-subtitle">
-                Whether you're looking for DevOps expertise, cloud architecture solutions, or AI integration, 
+                Whether you're looking for Go development, cloud architecture solutions, or technical consulting, 
                 I'm here to help bring your vision to life. Let's discuss your next project.
             </p>
         </div>
@@ -650,7 +712,7 @@
                                 <div class="contact-icon">📧</div>
                                 <div class="contact-details">
                                     <h4>Email</h4>
-                                    <p>naveed@iminhas.com</p>
+                                    <p>ping@iminhas.com</p>
                                 </div>
                             </div>
 
@@ -680,9 +742,9 @@
                         </div>
 
                         <div class="social-links">
-                            <a href="mailto:naveed@iminhas.com" class="social-link">📧</a>
-                            <a href="#" class="social-link">💼</a>
-                            <a href="#" class="social-link">📁</a>
+                            <a href="mailto:ping@iminhas.com" class="social-link">📧</a>
+                            <a href="https://linkedin.com/in/mohammad-naveed-iqbal-minhas" class="social-link">💼</a>
+                            <a href="https://github.com/nido007" class="social-link">📁</a>
                             <a href="#" class="social-link">🐦</a>
                         </div>
                     </div>
@@ -695,21 +757,21 @@
                         <p>Let's discuss your project requirements and how I can help</p>
                     </div>
 
-                    <form action="https://formsubmit.co/YOUR-EMAIL@example.com" method="POST">
-                        <!-- Hidden fields for FormSubmit -->
-                        <input type="hidden" name="_subject" value="New Contact Form Submission - iminhas.com">
-                        <input type="hidden" name="_next" value="https://iminhas.com/thank-you.html">
-                        <input type="hidden" name="_captcha" value="false">
+                    <!-- Success/Error Message Container -->
+                    <div id="message-container" class="message-container">
+                        <div id="message-content"></div>
+                    </div>
 
+                    <form id="contact-form">
                         <div class="form-group">
                             <div class="form-row">
                                 <div>
                                     <label for="firstName" class="form-label">First Name *</label>
-                                    <input type="text" id="firstName" name="firstName" class="form-input" required>
+                                    <input type="text" id="firstName" name="firstName" class="form-input" required minlength="2" maxlength="50">
                                 </div>
                                 <div>
                                     <label for="lastName" class="form-label">Last Name *</label>
-                                    <input type="text" id="lastName" name="lastName" class="form-input" required>
+                                    <input type="text" id="lastName" name="lastName" class="form-input" required minlength="2" maxlength="50">
                                 </div>
                             </div>
                         </div>
@@ -722,7 +784,7 @@
                                 </div>
                                 <div>
                                     <label for="company" class="form-label">Company</label>
-                                    <input type="text" id="company" name="company" class="form-input">
+                                    <input type="text" id="company" name="company" class="form-input" maxlength="100">
                                 </div>
                             </div>
                         </div>
@@ -730,47 +792,61 @@
                         <div class="form-group">
                             <label for="projectType" class="form-label">Project Type *</label>
                             <select id="projectType" name="projectType" class="form-select" required>
-                                <option value="">Select project type</option>
-                                <option value="devops-consulting">DevOps Consulting</option>
-                                <option value="cloud-migration">Cloud Migration</option>
-                                <option value="ci-cd-setup">CI/CD Pipeline Setup</option>
-                                <option value="infrastructure-automation">Infrastructure Automation</option>
-                                <option value="ai-integration">AI Integration</option>
-                                <option value="training-workshops">Training & Workshops</option>
-                                <option value="other">Other</option>
+                                <option value="">Select project type...</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="Backend API">Backend API Development</option>
+                                <option value="Go Microservices">Go Microservices</option>
+                                <option value="Database Design">Database Design</option>
+                                <option value="DevOps/Deployment">DevOps & Deployment</option>
+                                <option value="Consulting">Technical Consulting</option>
+                                <option value="Code Review">Code Review & Optimization</option>
+                                <option value="Other">Other</option>
                             </select>
                         </div>
 
                         <div class="form-group">
-                            <label for="budget" class="form-label">Project Budget</label>
-                            <select id="budget" name="budget" class="form-select">
-                                <option value="">Select budget range</option>
-                                <option value="under-5k">Under $5,000</option>
-                                <option value="5k-15k">$5,000 - $15,000</option>
-                                <option value="15k-50k">$15,000 - $50,000</option>
-                                <option value="50k-plus">$50,000+</option>
-                                <option value="discuss">Let's Discuss</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="timeline" class="form-label">Timeline</label>
-                            <select id="timeline" name="timeline" class="form-select">
-                                <option value="">Select timeline</option>
-                                <option value="asap">ASAP</option>
-                                <option value="1-month">Within 1 month</option>
-                                <option value="3-months">Within 3 months</option>
-                                <option value="6-months">Within 6 months</option>
-                                <option value="flexible">Flexible</option>
-                            </select>
+                            <div class="form-row">
+                                <div>
+                                    <label for="budget" class="form-label">Project Budget</label>
+                                    <select id="budget" name="budget" class="form-select">
+                                        <option value="">Select budget range...</option>
+                                        <option value="Under $5K">Under $5,000</option>
+                                        <option value="$5K - $15K">$5,000 - $15,000</option>
+                                        <option value="$15K - $30K">$15,000 - $30,000</option>
+                                        <option value="$30K+">$30,000+</option>
+                                        <option value="Discuss">Let's discuss</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="timeline" class="form-label">Timeline</label>
+                                    <select id="timeline" name="timeline" class="form-select">
+                                        <option value="">Select timeline...</option>
+                                        <option value="ASAP">As soon as possible</option>
+                                        <option value="1-2 weeks">1-2 weeks</option>
+                                        <option value="1 month">Within 1 month</option>
+                                        <option value="2-3 months">2-3 months</option>
+                                        <option value="3+ months">3+ months</option>
+                                        <option value="Flexible">Flexible</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="form-group">
                             <label for="message" class="form-label">Project Details *</label>
-                            <textarea id="message" name="message" class="form-textarea" placeholder="Tell me about your project, goals, current challenges, and how I can help..." required></textarea>
+                            <textarea id="message" name="message" class="form-textarea" placeholder="Tell me about your project, requirements, goals, and any specific technologies you'd like to use..." required minlength="10" maxlength="1000"></textarea>
+                            <div class="char-counter">
+                                <span id="char-count">0</span>/1000 characters
+                            </div>
                         </div>
 
-                        <button type="submit" class="submit-btn">Send Message</button>
+                        <button type="submit" class="submit-btn" id="submit-btn">
+                            <span id="btn-text">Send Message</span>
+                            <span id="btn-loading" class="btn-loading">
+                                <div class="spinner"></div>
+                                Sending...
+                            </span>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -821,20 +897,105 @@
             });
         });
 
-        // Form validation and enhancement
-        const form = document.querySelector('form');
-        const submitBtn = document.querySelector('.submit-btn');
+        // Character counter for message field
+        const messageField = document.getElementById('message');
+        const charCount = document.getElementById('char-count');
 
-        form.addEventListener('submit', function(e) {
-            // Add loading state
-            submitBtn.innerHTML = '<span style="display: inline-flex; align-items: center; gap: 0.5rem;"><span>Sending...</span><span style="animation: spin 1s linear infinite;">⏳</span></span>';
+        messageField.addEventListener('input', function() {
+            const currentLength = this.value.length;
+            charCount.textContent = currentLength;
+            
+            if (currentLength > 950) {
+                charCount.style.color = 'var(--error)';
+            } else if (currentLength > 800) {
+                charCount.style.color = 'var(--warning)';
+            } else {
+                charCount.style.color = 'var(--gray-500)';
+            }
+        });
+
+        // Form submission handling
+        const contactForm = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const btnText = document.getElementById('btn-text');
+        const btnLoading = document.getElementById('btn-loading');
+        const messageContainer = document.getElementById('message-container');
+        const messageContent = document.getElementById('message-content');
+
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Show loading state
             submitBtn.disabled = true;
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'flex';
+            messageContainer.style.display = 'none';
             
-            // Note: Form will submit to FormSubmit
-            // You can add additional validation or analytics here
+            // Get form data
+            const formData = new FormData(this);
             
-            // Track form submission
-            trackEvent('form_submission', 'contact_form');
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok && result.success) {
+                    // Success
+                    messageContainer.className = 'message-container success';
+                    messageContent.innerHTML = `
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <span style="font-size: 1.5rem;">✅</span>
+                            <div>
+                                <div style="font-weight: 600; margin-bottom: 0.25rem;">Message sent successfully!</div>
+                                <div>${result.message}</div>
+                                ${result.id ? `<div style="font-size: 0.875rem; opacity: 0.8; margin-top: 0.25rem;">Reference: ${result.id}</div>` : ''}
+                            </div>
+                        </div>
+                    `;
+                    messageContainer.style.display = 'block';
+                    
+                    // Reset form
+                    this.reset();
+                    charCount.textContent = '0';
+                    charCount.style.color = 'var(--gray-500)';
+                    
+                    // Track success
+                    trackEvent('form_submission_success', 'contact_form');
+                } else {
+                    throw new Error(result.error || 'Something went wrong');
+                }
+            } catch (error) {
+                // Error
+                messageContainer.className = 'message-container error';
+                messageContent.innerHTML = `
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <span style="font-size: 1.5rem;">❌</span>
+                        <div>
+                            <div style="font-weight: 600; margin-bottom: 0.25rem;">Error sending message</div>
+                            <div>${error.message}</div>
+                            <div style="font-size: 0.875rem; margin-top: 0.25rem;">Please try again or contact me directly at ping@iminhas.com</div>
+                        </div>
+                    </div>
+                `;
+                messageContainer.style.display = 'block';
+                
+                // Track error
+                trackEvent('form_submission_error', 'contact_form');
+            } finally {
+                // Reset button state
+                submitBtn.disabled = false;
+                btnText.style.display = 'inline';
+                btnLoading.style.display = 'none';
+                
+                // Scroll to message
+                messageContainer.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                });
+            }
         });
 
         // Real-time form validation
@@ -860,9 +1021,9 @@
         const emailField = document.getElementById('email');
         emailField.addEventListener('blur', function() {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(this.value)) {
+            if (this.value && !emailRegex.test(this.value)) {
                 this.style.borderColor = 'var(--error)';
-            } else {
+            } else if (this.value) {
                 this.style.borderColor = 'var(--success)';
             }
         });
@@ -920,7 +1081,7 @@
         // Analytics tracking (placeholder)
         function trackEvent(action, label) {
             console.log(`Event: ${action}, Label: ${label}`);
-            // Add your analytics code here
+            // Add your analytics code here (Google Analytics, etc.)
         }
 
         // Track contact method clicks
@@ -930,16 +1091,6 @@
                 trackEvent('contact_method_click', methodType);
             });
         });
-
-        // Add spinning animation for loading state
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes spin {
-                from { transform: rotate(0deg); }
-                to { transform: rotate(360deg); }
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 </body>
 </html>

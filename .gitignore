@@ -1,2 +1,18 @@
 *.old
  
+# Go backend specific
+backend/.env
+backend/data/contact_submissions.json
+backend/data/*.json
+backend/*.log
+backend/logs/
+backend/*.exe
+backend/*.test
+backend/*.out
+backend/test-server
+backend/vendor/
+
+# OS files
+.DS_Store
+*.DS_Store
+Thumbs.db
