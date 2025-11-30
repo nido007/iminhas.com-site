@@ -1,3 +1,5 @@
+// backend/main.go
+// Main server file with handlers import
 package main
 
 import (
@@ -61,7 +63,6 @@ func main() {
 			"http://localhost:8080",
 			"https://iminhas.com",
 			"https://www.iminhas.com",
-			"http://35.193.123.198",
 			"*", // For development
 		}),
 		handlers.AllowedMethods([]string{"GET", "POST", "PUT", "DELETE", "OPTIONS"}),
@@ -74,42 +75,20 @@ func main() {
 		port = "8080"
 	}
 
-	// Get host for binding (production vs development)
-	host := os.Getenv("HOST")
-	if host == "" {
-		host = "0.0.0.0" // Bind to all interfaces for production
-	}
-
 	// Check email configuration on startup
 	validateEmailConfig()
 
-	// Get environment
-	env := os.Getenv("ENV")
-	if env == "" {
-		env = "development"
-	}
-
-	// Production-aware logging
-	if env == "production" {
-		log.Printf("🌐 Server running on port %s (production)", port)
-		log.Printf("📄 Website: https://iminhas.com/")
-		log.Printf("📝 Blog: https://iminhas.com/blog.html")
-		log.Printf("📧 Contact: https://iminhas.com/contact.html")
-		log.Printf("🏥 Health: https://iminhas.com/health")
-		log.Printf("📮 API: https://iminhas.com/api/contact")
-	} else {
-		log.Printf("🌐 Server running at http://localhost:%s", port)
-		log.Printf("📄 Your website: http://localhost:%s/", port)
-		log.Printf("📝 Your blog: http://localhost:%s/blog.html", port)
-		log.Printf("📧 Contact page: http://localhost:%s/contact.html", port)
-		log.Printf("🏥 Health check: http://localhost:%s/health", port)
-		log.Printf("📮 Contact API: http://localhost:%s/api/contact", port)
-	}
+	log.Printf("🌐 Server running at http://localhost:%s", port)
+	log.Printf("📄 Your website: http://localhost:%s/", port)
+	log.Printf("📝 Your blog: http://localhost:%s/blog.html", port)
+	log.Printf("📧 Contact page: http://localhost:%s/contact.html", port)
+	log.Printf("🏥 Health check: http://localhost:%s/health", port)
+	log.Printf("📮 Contact API: http://localhost:%s/api/contact", port)
 	log.Printf("📊 Submissions stored in: ./data/contact_submissions.json")
 
 	// Start server with timeouts
 	server := &http.Server{
-		Addr:         host + ":" + port,
+		Addr:         ":" + port,
 		Handler:      corsHandler,
 		ReadTimeout:  15 * time.Second,
 		WriteTimeout: 15 * time.Second,
@@ -121,10 +100,9 @@ func main() {
 
 // validateEmailConfig checks email configuration on startup
 func validateEmailConfig() {
-	// Check both old and new environment variable names
-	smtpUser := getEnvVar("SMTP_USERNAME", "SMTP_USER")
-	smtpPass := getEnvVar("SMTP_PASSWORD", "SMTP_PASS")
-	toEmail := getEnvVar("TO_EMAIL", "SMTP_USERNAME") // Fallback to SMTP_USERNAME if TO_EMAIL not set
+	smtpUser := os.Getenv("SMTP_USER")
+	smtpPass := os.Getenv("SMTP_PASS")
+	toEmail := os.Getenv("TO_EMAIL")
 
 	if smtpUser != "" && smtpPass != "" {
 		log.Printf("✅ 📧 Email functionality enabled!")
@@ -132,30 +110,22 @@ func validateEmailConfig() {
 		if toEmail != "" {
 			log.Printf("📧 Sending to: %s", toEmail)
 		} else {
-			log.Printf("📧 Sending to: %s (using SMTP_USERNAME)", smtpUser)
+			log.Printf("📧 Sending to: %s (using SMTP_USER)", smtpUser)
 		}
 	} else {
 		log.Printf("❌ ⚠️  WARNING: Email not configured!")
 		log.Printf("📧 To enable email functionality:")
 		log.Printf("   1. Check your .env file exists in backend/ directory")
-		log.Printf("   2. Verify SMTP_USERNAME and SMTP_PASSWORD are set correctly")
+		log.Printf("   2. Verify SMTP_USER and SMTP_PASS are set correctly")
 		log.Printf("   3. Restart the server")
 		log.Printf("📝 Contact forms will be saved but emails won't be sent")
 
 		// Debug environment variables
 		log.Printf("🔍 Environment check:")
-		log.Printf("   SMTP_USERNAME: '%s'", smtpUser)
-		log.Printf("   SMTP_PASSWORD: '%s'", maskPassword(smtpPass))
+		log.Printf("   SMTP_USER: '%s'", smtpUser)
+		log.Printf("   SMTP_PASS: '%s'", maskPassword(smtpPass))
 		log.Printf("   TO_EMAIL: '%s'", toEmail)
 	}
-}
-
-// getEnvVar gets environment variable with fallback
-func getEnvVar(primary, fallback string) string {
-	if val := os.Getenv(primary); val != "" {
-		return val
-	}
-	return os.Getenv(fallback)
 }
 
 // Static file serving functions
@@ -183,10 +153,7 @@ func serveFile(filename string) http.HandlerFunc {
 func healthCheckHandler(w http.ResponseWriter, r *http.Request) {
 	log.Printf("🏥 Health check requested from %s", r.RemoteAddr)
 
-	// Check email with both variable names
-	smtpUser := getEnvVar("SMTP_USERNAME", "SMTP_USER")
-	smtpPass := getEnvVar("SMTP_PASSWORD", "SMTP_PASS")
-	emailConfigured := smtpUser != "" && smtpPass != ""
+	emailConfigured := os.Getenv("SMTP_USER") != "" && os.Getenv("SMTP_PASS") != ""
 
 	response := map[string]interface{}{
 		"status":           "healthy",
@@ -195,7 +162,6 @@ func healthCheckHandler(w http.ResponseWriter, r *http.Request) {
 		"timestamp":        time.Now().Format(time.RFC3339),
 		"uptime":           time.Since(startTime).String(),
 		"email_configured": emailConfigured,
-		"environment":      getEnvVar("ENV", "development"),
 		"features": map[string]interface{}{
 			"static_files":    true,
 			"json_api":        true,
@@ -213,9 +179,9 @@ func healthCheckHandler(w http.ResponseWriter, r *http.Request) {
 		},
 		"email_status": map[string]interface{}{
 			"configured": emailConfigured,
-			"smtp_host":  getEnvVar("SMTP_HOST", "smtp.gmail.com"),
-			"smtp_user":  smtpUser,
-			"to_email":   getEnvVar("TO_EMAIL", smtpUser),
+			"smtp_host":  os.Getenv("SMTP_HOST"),
+			"smtp_user":  os.Getenv("SMTP_USER"),
+			"to_email":   os.Getenv("TO_EMAIL"),
 		},
 	}
 
