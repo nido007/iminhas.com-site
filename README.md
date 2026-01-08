@@ -1,61 +1,23 @@
-## 🌐 Live Website
-Visit [iminhas.com](https://iminhas.com){:target="_blank"}
+# Naveed Minhas - Learning Web Development
 
----
+## Current Status
+Learning HTML and CSS from the ground up. Building in public.
 
-## 🚀 Project Overview
-- Deployed a personal static website using GitHub and Cloudflare Pages.
-- Custom domain secured with free SSL (HTTPS).
-- Full CI/CD workflow via GitHub.
+## Structure
+```
+src/
+├── index.html      # Main page
+├── css/
+│   └── style.css   # Styles
+├── js/             # JavaScript (future)
+└── assets/         # Images and other assets
+```
 
----
+## Daily Progress
+Track what I learn each day as I build this site.
 
-## 🛠️ Technologies Used
-- **HTML/CSS** (Static Webpage)
-- **Git and GitHub** (Version Control)
-- **Cloudflare Pages** (Hosting and Free SSL)
-- **Cloudflare DNS** (Domain Management)
-- **SSL/TLS Flexible Mode** (Secure HTTPS)
+### Week 1
+- Day 1: Clean project structure, basic HTML/CSS setup
 
----
-
-## 🛤️ Step-by-Step Execution Plan
-
-### 📄 Local Development
-- Created static `index.html` website.
-- Initialized a local Git repository.
-- Created and pushed project to GitHub.
-
-### 🔐 GitHub Setup
-- Configured Personal Access Token (PAT) for secure git push.
-- Corrected branch upstream settings.
-- Handled unrelated histories with pull + rebase strategy.
-
-### 🌐 Cloudflare Setup
-- Connected GitHub repo to Cloudflare Pages.
-- Configured build settings with No Framework Preset.
-- Deployed to temporary Cloudflare Pages URL.
-
-### 🛡️ Custom Domain Setup
-- Added `iminhas.com` and `www.iminhas.com` via CNAME.
-- Solved SSL handshake errors by switching to Flexible SSL mode.
-- Corrected 403 errors by setting correct output directory and file placement.
-
----
-
-## 🏆 Achievements
-- Fully working personal website `iminhas.com`.
-- Live HTTPS secured traffic.
-- Auto-update on every GitHub push (CI/CD integration).
-- Professional DNS management and troubleshooting experience.
-
----
-
-## 🛣️ Future Roadmap
-- [ ] Dockerize the static website.
-- [ ] Set up GitHub Actions for automated build/test pipelines.
-- [ ] Create a simple GoLang web server.
-- [ ] Deploy projects with Kubernetes (Minikube).
-- [ ] Implement Infrastructure as Code (Terraform).
-
-> _"Built from scratch with passion for DevOps, Cloud, and Web Technologies."_
+## Deployment
+Hosted on Google Cloud Platform
