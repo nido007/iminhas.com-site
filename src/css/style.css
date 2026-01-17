@@ -125,8 +125,6 @@ h2 {
     
 }
 
-
-
 @media screen and (max-width: 720px) {
     .projects{
         flex-direction: column;
