@@ -7,6 +7,7 @@ backend/data/*.json
 backend/*.log
 backend/logs/
 backend/*.exe
+temp_auto_push.bat
 backend/*.test
 backend/*.out
 backend/test-server
@@ -16,3 +17,5 @@ backend/vendor/
 .DS_Store
 *.DS_Store
 Thumbs.db
+.gitignore
+temp_interactive_push.bat
