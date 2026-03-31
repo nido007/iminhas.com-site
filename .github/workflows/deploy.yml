@@ -16,6 +16,9 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /home/ubuntu/iminhas.com-site
+           cd /home/ubuntu/iminhas.com-site
             git pull origin main
-            echo "✅ Deployment complete!"
+            sudo cp -r src/index.html /var/www/html/index.html
+            sudo cp -r src/css/style.css /var/www/html/css/style.css
+           sudo cp -r src/assets/ /var/www/html/assets/
+           echo "✅ Deployment complete!"
