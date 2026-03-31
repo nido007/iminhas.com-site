@@ -1,0 +1,5 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="112" fill="#080C14"/>
+  <text x="256" y="340" font-family="system-ui,-apple-system,sans-serif" font-size="220" font-weight="700" fill="#38BDF8" text-anchor="middle" letter-spacing="-12">NM</text>
+  <rect x="80" y="368" width="352" height="12" rx="6" fill="#0EA5E9" opacity="0.3"/>
+</svg>
