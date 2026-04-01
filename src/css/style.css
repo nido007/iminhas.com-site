@@ -40,7 +40,13 @@ nav {
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
-
+.nav-logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: opacity .2s;
+}
+.nav-logo:hover { opacity: 0.75; }
 .nav-name {
   font-family: var(--font-mono);
   font-size: 14px; font-weight: 500;
