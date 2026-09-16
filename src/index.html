@@ -3,253 +3,392 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Naveed Minhas — DevOps & Cloud Engineer, London</title>
-  <meta name="description" content="DevOps and Cloud Engineer based in London. Oracle Cloud, AWS, GitHub Actions, Docker, Kubernetes. Open to junior DevOps roles.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+
+  <!-- ============ SEO / RECRUITER DISCOVERY ============ -->
+  <title>Mohammad Minhas — IT Support, Cloud &amp; Infrastructure | London</title>
+  <meta name="description" content="Mohammad Minhas — London-based IT and infrastructure professional in training. Moving from transport operations into IT support, systems, networking and cloud/DevOps. Open to entry-level IT roles.">
+  <meta name="author" content="Mohammad Minhas">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://iminhas.com/">
+  <meta name="theme-color" content="#0f172a">
+
+  <!-- Open Graph (LinkedIn, Facebook, Slack link previews) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mohammad Minhas">
+  <meta property="og:title" content="Mohammad Minhas — IT Support, Cloud &amp; Infrastructure">
+  <meta property="og:description" content="London-based IT and infrastructure professional in training. Open to entry-level IT support, infrastructure and cloud opportunities.">
+  <meta property="og:url" content="https://iminhas.com/">
+  <meta property="og:image" content="https://iminhas.com/assets/og-image.png">
+
+  <!-- Twitter / X card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mohammad Minhas — IT Support, Cloud &amp; Infrastructure">
+  <meta name="twitter:description" content="London-based IT and infrastructure professional in training.">
+  <meta name="twitter:image" content="https://iminhas.com/assets/og-image.png">
+
+  <!-- Favicons (files already in your repo) -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-512.svg" sizes="512x512" type="image/svg+xml">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- Structured data: helps Google understand who you are.
+       Big lever for ranking on your own name in search. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mohammad Minhas",
+    "alternateName": "Naveed Minhas",
+    "url": "https://iminhas.com/",
+    "email": "mailto:naveed@iminhas.com",
+    "jobTitle": "IT Support & Infrastructure (in training)",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "London",
+      "addressCountry": "GB"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/naveed-minhas",
+      "https://github.com/nido007"
+    ]
+  }
+  </script>
 </head>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="apple-touch-icon" href="favicon-512.svg">
-<meta name="theme-color" content="#080C14">
+
 <body>
+  <!-- Accessibility: lets keyboard users jump straight to content -->
+  <a href="#main" class="skip-link">Skip to content</a>
 
-  <!-- NAV -->
-  <nav>
-    <a href="#" class="nav-logo">
-  <svg width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-    <rect width="36" height="36" rx="8" fill="#080C14"/>
-    <rect width="36" height="36" rx="8" fill="none" stroke="#38BDF8" stroke-width="1.5"/>
-    <text x="18" y="24" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#38BDF8" text-anchor="middle" letter-spacing="-1">NM</text>
-  </svg>
-</a>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+  <!-- ============ HEADER / NAV ============ -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a href="/" class="brand" aria-label="Mohammad Minhas — home">
+        <!-- Swap this text mark for your MM logo later:
+             <img src="/assets/brand/mm-logo.svg" alt="Mohammad Minhas" class="brand-logo"> -->
+        <span class="brand-mark">MM</span>
+        <span class="brand-name">Mohammad Minhas</span>
+      </a>
 
-  <div class="container">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
 
-    <!-- HEADER -->
-    <header>
-      <div class="header-inner">
-        <div class="photo-wrap">
-          <img src="assets/images/profile.jpg" alt="Naveed Minhas" class="profile-pic">
-          <span class="status-dot" title="Open to opportunities"></span>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#labs">Labs</a></li>
+        <li><a href="#learning">Learning</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ 1. HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-inner">
+        <img src="/assets/images/profile.jpg" alt="Mohammad Minhas" class="hero-photo" width="140" height="140">
+        <h1 id="hero-title">Mohammad Minhas</h1>
+        <p class="hero-role">IT Support, Cloud &amp; Infrastructure</p>
+        <p class="hero-intro">
+          I'm moving into technology after more than a decade in transport operations —
+          coordinating daily services, supporting users and keeping systems running under
+          pressure. I'm now building hands-on skills across IT support, systems, networking
+          and cloud infrastructure through structured study and a home lab, and I'm looking
+          for my first professional IT role.
+        </p>
+        <p class="hero-availability">
+          Open to IT Support, Technical Support, Infrastructure &amp; Cloud opportunities · London
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">View projects</a>
+          <a class="btn" href="https://github.com/nido007" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/naveed-minhas" target="_blank" rel="noopener">LinkedIn</a>
+          <!-- Add Mohammad_Minhas_CV.pdf to src/ and this button just works -->
+          <a class="btn" href="/Mohammad_Minhas_CV.pdf" download>Download CV</a>
         </div>
-        <div class="header-text">
-          <p class="header-eyebrow">
-            <span class="dot-pulse"></span>
-            Available for junior DevOps roles · London
+      </div>
+    </section>
+
+    <!-- ============ 2. ABOUT ============ -->
+    <section id="about" class="section" aria-labelledby="about-title">
+      <div class="wrap">
+        <h2 id="about-title">About</h2>
+        <div class="prose">
+          <p>
+            For over a decade I worked in transport operations — most recently as an
+            Operations Co-ordinator handling special-needs school transport for local
+            councils, and before that managing airport-transfer and chauffeur dispatch.
+            Those roles meant coordinating people and services, communicating with many
+            different stakeholders, and diagnosing and fixing problems quickly when things
+            went wrong.
           </p>
-          <h1>Naveed Minhas</h1>
-          <p class="subtitle">DevOps &amp; Cloud Engineer</p>
-          <p class="tagline">Building on Oracle Cloud · AWS · GCP · Docker · Kubernetes</p>
-          <div class="header-links">
-            <a href="https://github.com/nido007" target="_blank" rel="noopener" class="btn-ghost">
-              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-              GitHub
-            </a>
-            <a href="https://linkedin.com/in/naveed-minhas" target="_blank" rel="noopener" class="btn-ghost">
-              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              LinkedIn
-            </a>
-            <a href="https://qazitech.com" target="_blank" rel="noopener" class="btn-primary">
-              Qazitech →
-            </a>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- ABOUT -->
-    <section class="about" id="about">
-      <h2><span class="sec-num">01</span> About</h2>
-      <div class="about-grid">
-        <div class="about-text">
-          <p>I'm Naveed — a London-based career changer making a deliberate transition into DevOps and Cloud Engineering after 6+ years in transport operations.</p>
-          <p>I'm training intensively at 01Founders, a project-based software engineering fellowship. I've completed the Golang and JavaScript track — building real infrastructure and full-stack projects from scratch.</p>
-          <p>I don't just study — I deploy. This site runs on GCP via a CI/CD pipeline I built myself. <a href="https://qazitech.com" class="inline-link">Qazitech.com</a> runs on Oracle Cloud Free Tier with Apache, SSL, Cloudflare, and fail2ban, all configured by hand.</p>
-        </div>
-        <div class="about-stats">
-          <div class="stat-box">
-            <span class="stat-n">12+</span>
-            <span class="stat-l">Months at 01Founders</span>
-          </div>
-          <div class="stat-box">
-            <span class="stat-n">40+</span>
-            <span class="stat-l">Projects deployed</span>
-          </div>
-          <div class="stat-box">
-            <span class="stat-n">250d</span>
-            <span class="stat-l">Server uptime</span>
-          </div>
-          <div class="stat-box">
-            <span class="stat-n">UK</span>
-            <span class="stat-l">London based</span>
-          </div>
+          <p>
+            I'm now making a deliberate move into IT and infrastructure. Rather than
+            collecting certificates, I'm focused on building things I can actually explain:
+            a Linux home lab, containers and a small Kubernetes cluster, and real
+            deployments running on cloud servers. I see one continuous path — from
+            end-user support, through systems and networking, to infrastructure and cloud
+            automation — and I want to start it in a first-line or support role and grow
+            from there.
+          </p>
+          <p>
+            This site is built and deployed the same way I'm learning to work:
+            version-controlled, automatically deployed, and documented as I go.
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- SKILLS -->
-    <section class="skills" id="skills">
-      <h2><span class="sec-num">02</span> Skills &amp; Stack</h2>
-      <div class="skills-grid">
+    <!-- ============ 3. TECHNICAL SKILLS ============ -->
+    <!-- No percentages or progress bars by design — they aren't meaningful.
+         Keep only what you can talk about in an interview; delete the rest. -->
+    <section id="skills" class="section section-alt" aria-labelledby="skills-title">
+      <div class="wrap">
+        <h2 id="skills-title">Technical skills</h2>
+        <div class="skills-grid">
 
-        <div class="skill-group">
-          <h3>Cloud &amp; Infrastructure</h3>
-          <div class="tags">
-            <span class="tag-item">Oracle Cloud</span>
-            <span class="tag-item">GCP</span>
-            <span class="tag-item">AWS (studying)</span>
-            <span class="tag-item">Cloudflare</span>
-            <span class="tag-item">Let's Encrypt / SSL</span>
+          <div class="skill-group">
+            <h3>Cloud</h3>
+            <ul class="tags">
+              <li>AWS</li><li>Google Cloud</li><li>Azure</li>
+            </ul>
           </div>
-        </div>
 
-        <div class="skill-group">
-          <h3>DevOps &amp; CI/CD</h3>
-          <div class="tags">
-            <span class="tag-item">GitHub Actions</span>
-            <span class="tag-item">Docker</span>
-            <span class="tag-item">Kubernetes (k3s)</span>
-            <span class="tag-item">Apache</span>
-            <span class="tag-item">Nginx</span>
-            <span class="tag-item">fail2ban</span>
+          <div class="skill-group">
+            <h3>DevOps</h3>
+            <ul class="tags">
+              <li>Docker</li><li>Kubernetes</li><li>Terraform</li><li>Ansible</li>
+              <li>Jenkins</li><li>GitHub Actions</li><li>CI/CD</li>
+            </ul>
           </div>
-        </div>
 
-        <div class="skill-group">
-          <h3>Languages</h3>
-          <div class="tags">
-            <span class="tag-item tag-strong">Go (Golang)</span>
-            <span class="tag-item">JavaScript</span>
-            <span class="tag-item">HTML / CSS</span>
-            <span class="tag-item">Bash</span>
-            <span class="tag-item">PHP</span>
+          <div class="skill-group">
+            <h3>Systems</h3>
+            <ul class="tags">
+              <li>Linux</li><li>Bash</li><li>SSH</li><li>Networking</li><li>TLS/SSL</li>
+            </ul>
           </div>
-        </div>
 
-        <div class="skill-group">
-          <h3>Systems &amp; Tools</h3>
-          <div class="tags">
-            <span class="tag-item">Linux / Ubuntu</span>
-            <span class="tag-item">SSH</span>
-            <span class="tag-item">Git</span>
-            <span class="tag-item">MySQL</span>
-            <span class="tag-item">WordPress</span>
-            <span class="tag-item">VS Code</span>
+          <div class="skill-group">
+            <h3>Development</h3>
+            <ul class="tags">
+              <li>Go</li><li>JavaScript</li><li>HTML</li><li>CSS</li><li>Git</li>
+            </ul>
           </div>
-        </div>
 
-      </div>
-    </section>
+          <div class="skill-group">
+            <h3>Monitoring</h3>
+            <ul class="tags">
+              <li>Prometheus</li><li>Grafana</li>
+            </ul>
+          </div>
 
-    <!-- PROJECTS -->
-    <section class="projects" id="projects">
-      <h2><span class="sec-num">03</span> Projects</h2>
-      <div class="projects-grid">
-
-        <div class="project-card">
-          <div class="project-header">
-            <div class="project-icon">
-              <svg width="20" height="20" fill="none" stroke="#38BDF8" stroke-width="2" viewBox="0 0 24 24"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>
-            </div>
-            <div class="project-links">
-              <a href="https://qazitech.com" target="_blank" rel="noopener">↗ Live</a>
-            </div>
-          </div>
-          <h3>Qazitech.com — Production Deployment</h3>
-          <p>Full production website on Oracle Cloud Free Tier VM. LAMP stack, Apache virtual hosts, Let's Encrypt SSL, Cloudflare DNS routing, fail2ban security hardening, and GitHub Actions CI/CD pipeline for zero-touch deploys.</p>
-          <div class="project-tags">
-            <span>Oracle Cloud</span><span>Apache</span><span>GitHub Actions</span><span>Cloudflare</span><span>SSL</span>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-header">
-            <div class="project-icon">
-              <svg width="20" height="20" fill="none" stroke="#38BDF8" stroke-width="2" viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-            </div>
-            <div class="project-links">
-              <a href="https://iminhas.com" target="_blank" rel="noopener">↗ Live</a>
-              <a href="https://github.com/nido007" target="_blank" rel="noopener">↗ GitHub</a>
-            </div>
-          </div>
-          <h3>iminhas.com — Personal Portfolio with CI/CD</h3>
-          <p>Static portfolio site deployed to GCP via GitHub Actions. SSH key authentication, automated deploy on every push to main branch. Custom HTML/CSS — no frameworks.</p>
-          <div class="project-tags">
-            <span>GCP</span><span>GitHub Actions</span><span>HTML/CSS</span><span>CI/CD</span>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-header">
-            <div class="project-icon">
-              <svg width="20" height="20" fill="none" stroke="#38BDF8" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/nido007" target="_blank" rel="noopener">↗ GitHub</a>
-            </div>
-          </div>
-          <h3>Real-Time Forum — Go + WebSocket</h3>
-          <p>Full-stack forum application built in Go. Migrated from SSE to WebSocket (Gorilla) for real-time messaging. Features authentication, posts, comments, and live notifications. Deployed with Docker.</p>
-          <div class="project-tags">
-            <span>Go</span><span>WebSocket</span><span>Docker</span><span>SQLite</span>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-header">
-            <div class="project-icon">
-              <svg width="20" height="20" fill="none" stroke="#38BDF8" stroke-width="2" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/nido007" target="_blank" rel="noopener">↗ GitHub</a>
-            </div>
-          </div>
-          <h3>40+ Go Projects — 01Founders Fellowship</h3>
-          <p>12+ months of intensive Golang training: ASCII Art, Groupie Tracker, lem-in (graph pathfinding), go-reloaded, and more. All built from scratch, deployed to GCP via automated pipelines.</p>
-          <div class="project-tags">
-            <span>Go</span><span>GCP</span><span>Algorithms</span><span>REST APIs</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="contact-section" id="contact">
-      <h2><span class="sec-num">04</span> Get In Touch</h2>
-      <div class="contact-inner">
-        <p>Open to junior DevOps roles, cloud engineering positions, and freelance infrastructure work across the UK. Based in London.</p>
-        <div class="contact-links">
-          <a href="mailto:naveed@iminhas.com" class="contact-item">
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            naveed@iminhas.com
-          </a>
-          <a href="https://github.com/nido007" target="_blank" rel="noopener" class="contact-item">
-            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-            github.com/nido007
-          </a>
-          <a href="https://qazitech.com" target="_blank" rel="noopener" class="contact-item">
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg>
-            qazitech.com
-          </a>
         </div>
       </div>
     </section>
 
-  </div><!-- /container -->
+    <!-- ============ 4. PROJECTS ============ -->
+    <section id="projects" class="section" aria-labelledby="projects-title">
+      <div class="wrap">
+        <h2 id="projects-title">Projects</h2>
+        <p class="section-lead">
+          A small number of real, documented projects — each framed around the problem,
+          what I built, and what I learned.
+        </p>
 
-  <footer>
-    <p>© 2026 Naveed Minhas · London, UK</p>
-    <p class="footer-sub">Built with HTML/CSS · Deployed on GCP via GitHub Actions</p>
+        <div class="cards">
+
+          <!-- REAL, LIVE PROJECT: this website's own deployment.
+               Every claim here is verifiable. Edit freely. -->
+          <article class="card">
+            <h3>Automated deployment for iminhas.com</h3>
+            <dl class="card-detail">
+              <dt>Problem</dt>
+              <dd>I wanted a real, hands-off way to publish updates to a live site without
+                  logging into the server and copying files by hand.</dd>
+              <dt>What I built</dt>
+              <dd>A static site hosted on an Ubuntu server on Google Cloud, served by Nginx
+                  over HTTPS with an automatic HTTP&nbsp;→&nbsp;HTTPS redirect. A GitHub
+                  Actions workflow connects over SSH on every push to <code>main</code> and
+                  updates the server from Git.</dd>
+              <dt>Technologies</dt>
+              <dd>Ubuntu · Nginx · Google Cloud · GitHub Actions · SSH · Git</dd>
+              <dt>What I learned</dt>
+              <dd>How a CI/CD pipeline, SSH keys and a web server fit together, and why a
+                  clean deploy step (reset to the committed state) makes releases
+                  predictable.</dd>
+            </dl>
+            <div class="card-links">
+              <!-- Update to the exact repo URL if different -->
+              <a href="https://github.com/nido007" target="_blank" rel="noopener">GitHub</a>
+              <a href="https://iminhas.com/" target="_blank" rel="noopener">Live site</a>
+            </div>
+          </article>
+
+          <!-- ===== REUSABLE PROJECT TEMPLATE — copy this whole <article> block =====
+          <article class="card">
+            <h3>PROJECT NAME</h3>
+            <dl class="card-detail">
+              <dt>Problem</dt>       <dd>What problem or objective this addressed.</dd>
+              <dt>What I built</dt>  <dd>What you actually configured or wrote.</dd>
+              <dt>Technologies</dt>  <dd>Tool · Tool · Tool</dd>
+              <dt>What I learned</dt><dd>The real takeaway.</dd>
+            </dl>
+            <div class="card-links">
+              <a href="GITHUB_URL" target="_blank" rel="noopener">GitHub</a>
+              <a href="LIVE_URL" target="_blank" rel="noopener">Live demo</a>
+            </div>
+          </article>
+          ====================================================================== -->
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5. HOME LAB & PRACTICAL EXPERIENCE ============ -->
+    <section id="labs" class="section section-alt" aria-labelledby="labs-title">
+      <div class="wrap">
+        <h2 id="labs-title">Home lab &amp; practical experience</h2>
+        <p class="section-lead">
+          Hands-on work built outside commercial employment. Split honestly by status —
+          nothing moves to <strong>Completed</strong> until I can show evidence and explain it.
+        </p>
+
+        <div class="labs-status">
+
+          <div class="lab-column">
+            <h3 class="status status-done">Completed</h3>
+            <!-- Move a lab here ONLY when you have evidence (screenshots, notes, repo)
+                 and can walk through it. Use the template at the bottom of this section. -->
+            <p class="muted">First documented labs are being written up now.</p>
+          </div>
+
+          <div class="lab-column">
+            <h3 class="status status-learning">Currently learning</h3>
+            <ul class="lab-list">
+              <li>Linux administration</li>
+              <li>Docker</li>
+              <li>Kubernetes (k3s home lab)</li>
+              <li>Terraform</li>
+              <li>CI/CD with GitHub Actions</li>
+            </ul>
+          </div>
+
+          <div class="lab-column">
+            <h3 class="status status-planned">Planned</h3>
+            <ul class="lab-list">
+              <li>Windows troubleshooting</li>
+              <li>Active Directory / Entra ID</li>
+              <li>Microsoft 365 administration</li>
+              <li>DNS &amp; DHCP</li>
+              <li>Nginx / Apache + TLS certificates</li>
+              <li>Ansible</li>
+              <li>Prometheus &amp; Grafana monitoring</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- ===== COMPLETED-LAB TEMPLATE — copy into the "Completed" column =====
+        <article class="card">
+          <h4>LAB NAME</h4>
+          <dl class="card-detail">
+            <dt>Objective</dt>            <dd>What you set out to do.</dd>
+            <dt>What I configured</dt>    <dd>The actual steps/setup.</dd>
+            <dt>How I tested it</dt>      <dd>How you proved it worked.</dd>
+            <dt>Problems encountered</dt> <dd>What broke.</dd>
+            <dt>How I troubleshot it</dt> <dd>How you diagnosed and fixed it.</dd>
+            <dt>Result</dt>              <dd>The outcome.</dd>
+            <dt>What I learned</dt>       <dd>The takeaway.</dd>
+          </dl>
+          <div class="card-links">
+            <a href="EVIDENCE_URL" target="_blank" rel="noopener">Notes / screenshots</a>
+          </div>
+        </article>
+        ==================================================================== -->
+
+      </div>
+    </section>
+
+    <!-- ============ 6. CURRENT LEARNING ============ -->
+    <section id="learning" class="section" aria-labelledby="learning-title">
+      <div class="wrap">
+        <h2 id="learning-title">Current learning</h2>
+        <ul class="learning-list">
+          <li><strong>KodeKloud DevOps Engineer path</strong> — primary structured curriculum.</li>
+          <li><strong>Certification track:</strong> KCNA, working toward CKA.</li>
+          <li><strong>Focus areas:</strong> Linux, Kubernetes and Terraform, reinforced through home-lab practice.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 7. EXPERIENCE ============ -->
+    <section id="experience" class="section section-alt" aria-labelledby="experience-title">
+      <div class="wrap">
+        <h2 id="experience-title">Experience</h2>
+        <p class="section-lead">
+          Over a decade in transport operations. Not IT roles — but the day-to-day was
+          coordination, communication and problem-solving under pressure, which carries over.
+        </p>
+
+        <div class="timeline">
+          <article class="job">
+            <h3>Operations Co-ordinator / Tech Support</h3>
+            <p class="job-meta">Nivoshan UK Ltd · Jan 2014 – Mar 2020</p>
+            <p>Coordinated special-needs school transport for local councils. Managed daily
+               scheduling, handled urgent issues in real time, supported staff with day-to-day
+               technical and operational problems, and communicated with councils, drivers and
+               families to keep services running reliably.</p>
+          </article>
+
+          <article class="job">
+            <h3>Operations Manager</h3>
+            <p class="job-meta">Chiswick Cars Ltd · Aug 2009 – Dec 2013</p>
+            <p>Ran airport-transfer and chauffeur dispatch. Prioritised competing urgent jobs,
+               coordinated drivers and customers, and kept operations moving under time pressure.</p>
+          </article>
+        </div>
+
+        <ul class="transferable">
+          <li>Operations coordination</li>
+          <li>Troubleshooting under pressure</li>
+          <li>Stakeholder communication</li>
+          <li>Prioritising urgent issues</li>
+          <li>Reliability &amp; responsibility</li>
+          <li>Working independently</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 8. CONTACT ============ -->
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="wrap">
+        <h2 id="contact-title">Contact</h2>
+        <ul class="contact-list">
+          <li>Email: <a href="mailto:naveed@iminhas.com">naveed@iminhas.com</a></li>
+          <li>LinkedIn: <a href="https://www.linkedin.com/in/naveed-minhas" target="_blank" rel="noopener">linkedin.com/in/naveed-minhas</a></li>
+          <li>GitHub: <a href="https://github.com/nido007" target="_blank" rel="noopener">github.com/nido007</a></li>
+          <li>Location: London, UK</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Mohammad Minhas</p>
+    </div>
   </footer>
 
+  <!-- Vanilla JS comes in Step 4 (menu toggle, theme switch, current year) -->
+  <!-- <script src="/js/main.js" defer></script> -->
 </body>
 </html>
